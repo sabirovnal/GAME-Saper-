@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--white);
+    font-family:Arial, Helvetica, sans-serif;
+}
+:root {
+    --purple: #2f40d3;
+    --light-purple: #242947;
+    --lighter-purple: #797e9a;
+    --green: #66A663;
+    --white: #fff;
+    --orange: #dbac36;
+}
+body {
+    background-color: var(--purple);
+    margin: 20px;
+}
+header {
+    display:flex;
+    gap:15px;
+    align-items: center;
+    background-color: var(--light-purple);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+header .logo {
+    width: 80px;
+}
+header h1 {
+    text-transform: uppercase;
+}
+header span {
+    color: var(--lighter-purple);
+    font-weight: bold;
+}
+main {
+    display: flex;
+    gap: 20px;
+    flex-wrap:wrap-reverse;
+}
+.gameArea {
+    background-color: var(--light-purple);
+    border-radius: 20px;
+    flex-grow: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+.gameField {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(8, 30px);
+    gap: 6px;
+}
+h2 {
+    text-transform: uppercase;
+}
+.cell {
+    background-color: var(--purple);
+    border-radius: 4px;
+    font-weight:bold;
+    font-size: 25px;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+.cell.active {
+    background-color: var(--lighter-purple);
+    cursor:pointer;
+}
+.cell.flag {
+    background-image: url("https://i.postimg.cc/Nf54g356/flag-in-hole.png");
+    background-size: cover;
+    background-color:#66A663;
+}
+.cell.bomb {
+    background-image: url("https://i.postimg.cc/5tBWNPs3/bomb.png");
+    background-size: cover;
+    background-color: #ed9590;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.cell.active:not(.flag):hover{
+    opacity: 0.7;
+}
+.gameSettings {
+    background-color: var(--light-purple);
+    border-radius: 20px;
+    padding: 40px 20px;
+    flex-grow: 1;
+}
+.gameSettings h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.score {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin-bottom: 30px;
+}
+.point {
+    flex-basis: 150px;
+    background-color: var(--purple);
+    flex-grow: 1;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 20px;
+    font-size: 21px;
+    cursor:pointer;
+}
+.point.active {
+    background-color:var(--orange);
+}
+.input {
+    display: none;
+}
+#gameBtn {
+    width: 100%;
+    padding: 20px 0;
+    border-radius: 40px;
+    background-color: var(--green);
+    font-weight: 700;
+    font-size: 14px;
+    border:none;
+    cursor: pointer;
+}
+.disabled-button {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.exit {
+    color: var(--lighter-purple);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.exit:hover {
+    color: var(--white);
+}
+
+.launch {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height:100vh;
+    backdrop-filter: blur(10px);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.launchForm {
+    background-color: var(--light-purple);
+    border: 5px solid var(--white);
+    border-radius: 20px;
+    padding:20px 20px;
+}
+.launchForm h2 {
+    text-align: center;
+}
+.launchForm input {
+    margin-top:15px;
+    background-color: var(--lighter-purple);
+    color: var(--purple);
+    outline:0;
+    border: none;
+    width:100%;
+    font-size:24px;
+    border-radius:5px;
+    padding:5px;
+}
+
+.launch.disabled {
+    display: none;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.timer-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    animation: rotateIcon 2s linear infinite; 
+}
+
+.timer-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; 
+}
+
+@keyframes rotateIcon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
